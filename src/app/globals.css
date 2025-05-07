@@ -1,12 +1,57 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FCFAF7;
+  --foreground: #272729;
+  --font-sofia-pro: 'Sofia Pro', sans-serif;
+  --font-amadi: 'Amadi', serif;
+  --font-zapfino: 'Zapfino', cursive;
+  --font-nyx-std: 'Nyx Std', serif;
+  
+  /* Core brand palette */
+  --midnight-charcoal: #272729;
+  --forest-slate: #254035;
+  --deep-ember: #692E2A;
+  --terracotta-glow: #DC783A;
+  --creamy-linen: #F0E1CE;
+  
+  /* Luxury accent colors */
+  --antique-brass: #CD9B5A;
+  --burnished-gold: #D9B779;
+  --polished-copper: #B87333;
+  
+  /* Spacing variables */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+  
+  /* Border radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+}
+
+/* Custom font files */
+@font-face {
+  font-family: 'Zapfino';
+  src: url('/fonts/zapfino.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nyx Std';
+  src: url('/fonts/nyx-std.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1A1A1C;
+    --foreground: #F5F5F5;
   }
 }
 
@@ -17,13 +62,111 @@ body {
 }
 
 body {
-  color: var(--foreground);
+  color: var(--midnight-charcoal);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sofia-pro), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+  transition: background-color 0.3s ease-in-out;
+  letter-spacing: 0.01em;
 }
 
+/* Refined Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+p {
+  margin-bottom: var(--space-md);
+  font-weight: 300;
+}
+
+/* Custom text styles */
+.zapfino-text {
+  font-family: var(--font-zapfino), cursive;
+  line-height: 1.6;
+}
+
+.nyx-text {
+  font-family: var(--font-nyx-std), serif;
+  letter-spacing: 0.03em;
+}
+
+.uppercase-title {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+.luxury-caption {
+  font-size: 0.85rem;
+  color: var(--forest-slate);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Sophisticated Details */
+.gold-text {
+  background: linear-gradient(to right, var(--polished-copper), var(--burnished-gold), var(--antique-brass));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.ember-glow {
+  background: linear-gradient(135deg, var(--deep-ember) 0%, var(--terracotta-glow) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.luxury-border {
+  position: relative;
+}
+
+.luxury-border::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--burnished-gold), transparent);
+}
+
+.elegant-backdrop {
+  position: relative;
+}
+
+.elegant-backdrop::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, var(--creamy-linen), transparent 70%);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+/* Layout & Box Model */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -33,10 +176,108 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
+a:hover {
+  color: var(--terracotta-glow);
+}
+
+button, .button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Subtle image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  filter: brightness(1.02);
+  transition: filter 0.5s ease;
+}
+
+.luxury-image {
+  box-shadow: 0 10px 30px rgba(39, 39, 41, 0.1);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.product-image:hover {
+  filter: brightness(1.05) contrast(1.02);
+}
+
+/* Refined scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(240, 225, 206, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(205, 155, 90, 0.4);
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(205, 155, 90, 0.7);
+}
+
+/* Luxury Animations */
+@keyframes subtle-shine {
+  0% {
+    background-position: -100px;
+  }
+  100% {
+    background-position: 200px;
+  }
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(217, 183, 121, 0.2),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: subtle-shine 4s infinite ease-in-out;
+}
+
+/* Container for luxury content */
+.luxury-container {
+  padding: var(--space-md);
+  background-color: white;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 40px rgba(39, 39, 41, 0.06);
+  border: 1px solid rgba(240, 225, 206, 0.6);
+}
+
+/* Dark mode - more refined and sophisticated */
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  body {
+    color: var(--foreground);
+  }
+  
+  .luxury-container {
+    background-color: rgba(39, 39, 41, 0.7);
+    backdrop-filter: blur(10px);
+    border-color: rgba(105, 46, 42, 0.2);
+  }
+  
+  img {
+    filter: brightness(0.95) contrast(1.05);
   }
 }
