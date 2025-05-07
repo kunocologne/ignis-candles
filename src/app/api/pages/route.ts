@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
           data: {
             title: 'IGNIS',
             subtitle: 'Candles with Soul and Purpose',
-            description: 'Born from the fusion of nature, ritual, and regeneration. Each candle is more than a source of light: it's an invitation to reconnect with your essence, elevate your energy, and care for the planet.',
+            description: "Born from the fusion of nature, ritual, and regeneration. Each candle is more than a source of light: it's an invitation to reconnect with your essence, elevate your energy, and care for the planet.",
             ctaText: 'Shop Now',
             imageUrl: 'https://via.placeholder.com/600x700.png?text=IGNIS+Candle'
           }
