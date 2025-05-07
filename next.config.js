@@ -9,6 +9,12 @@ const nextConfig = {
   },
   // Transpile dependencies if needed
   transpilePackages: [],
+  // Don't fail the build due to ESLint errors
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig; 

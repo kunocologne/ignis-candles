@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 /**
  * GET handler for retrieving page configuration data
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   // This simulates an API that would potentially fetch data from a CMS or database
   // For now, we're just returning static data as this is a frontend-only project
   
